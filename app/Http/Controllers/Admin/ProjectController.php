@@ -168,7 +168,7 @@ class ProjectController extends Controller
             }
         }
 
-        $project->update($request->except('slug'));
+        $project->update($request->except('created_by'));
 
         return redirect()->route('admin.project.index');
     }

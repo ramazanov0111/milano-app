@@ -105,7 +105,7 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category): RedirectResponse
     {
-        $category->update($request->except('slug'));
+        $category->update($request->except('created_by'));
         return redirect()->route('admin.category.index');
     }
 

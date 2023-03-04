@@ -116,7 +116,7 @@ class ServiceController extends Controller
             $service->image_id = $image->id;
         }
 
-        $service->update($request->except('slug'));
+        $service->update($request->except('created_by'));
 
         return redirect()->route('admin.service.index');
     }
