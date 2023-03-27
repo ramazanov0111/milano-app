@@ -36,7 +36,21 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ url('/') }}">Главная</a></li>
                         <li><a href="{{ url('/projects') }}">Проекты</a></li>
-                        <li><a href="{{ url('/services') }}">Услуги</a></li>
+{{--                        <li><a href="{{ url('/services') }}">Услуги</a></li>--}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+                               role="button" aria-expanded="false">Услуги</a>
+                            <ul class="dropdown-menu" role="menu" id="categories">
+{{--                                @foreach($categories as $category)--}}
+{{--                                <li>--}}
+{{--                                    <a style="color: #343a40;" class="nav-link"--}}
+{{--                                       href="{{ url('/services/'.$category->slug) }}">--}}
+{{--                                        {{ $category->title }}--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                @endforeach--}}
+                            </ul>
+                        </li>
                         <li><a href="{{ url('/about') }}">О нас</a></li>
                         <li><a href="{{ url('/blog') }}">Блог</a></li>
                         <li><a href="{{ url('/contact') }}">Контакты</a></li>
@@ -46,3 +60,32 @@
         </div>
     </div>
 </header>
+
+<script>
+    const ul = document.getElementById('categories');
+    const url = window.location.origin + '/categories';
+
+    function createNode(element) {
+        return document.createElement(element);
+    }
+
+    function append(parent, el) {
+        return parent.appendChild(el);
+    }
+
+    fetch(url)
+        .then(response => response.json())
+        .then(function(data) {
+            return data.map(function(category) {
+                let li = createNode('li');
+                let a = createNode('a');
+                a.innerHTML = `${category.title}`;
+                a.href = window.location.origin + '/categories/' + `${category.slug}`;
+                a.className = 'nav-link';
+                a.style = "color: #343a40;"
+                li.className = '';
+                append(li, a);
+                append(ul, li);
+            })
+        })
+</script>

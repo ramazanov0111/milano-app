@@ -38,8 +38,10 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], 
 Route::get('/projects', [MainController::class, 'actionGetProjectList']);
 Route::get('/projects/{slug}', [MainController::class, 'actionGetProjectItem']);
 
-Route::get('/services', [MainController::class, 'actionGetServiceList']);
-Route::get('/services/{slug}', [MainController::class, 'actionGetServiceItem']);
+Route::get('/categories', [HomeController::class, 'getCategories']);
+Route::get('/categories/{category}', [MainController::class, 'actionGetSubCategoryList']);
+Route::get('/services/{subCategory}', [MainController::class, 'actionGetServiceList']);
+Route::get('/services/{subCategory}/{slug}', [MainController::class, 'actionGetServiceItem']);
 
 Route::get('/contact', static function () {
     return view('pages.contact');

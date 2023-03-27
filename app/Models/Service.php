@@ -127,7 +127,9 @@ class Service extends Model
      */
     public function scopeLastServices($query, $count)
     {
-        return $query->orderBy('created_at', 'desc')->take($count)->get();
+        return $query
+            ->where('published', 1)
+            ->orderBy('created_at', 'desc')->take($count)->get();
     }
 
     /*

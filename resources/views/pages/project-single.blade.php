@@ -31,7 +31,6 @@
                             @foreach($project->gallery as $item)
                                 <li><img width="75%" height="75%"
                                          src="{{ asset("img/projects/".$item->filename) }}" alt=""></li>
-
                             @endforeach
                         </ul>
                     </div>

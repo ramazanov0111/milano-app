@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Contracts\Foundation\Application;
@@ -48,27 +49,87 @@ class MainController extends Controller
     }
 
     /**
-     * Список услуг
+     * Список подкатегорий выбранной категории
      *
+     * @param $categorySlug
      * @return Application|Factory|View
      */
-    public function actionGetServiceList()
+    public function actionGetSubCategoryList($categorySlug)
     {
-        $services = (new Service)->newQuery()->get()->all();
+        /**
+         * @var Category $category
+         */
+        $category = (new Category)->newQuery()
+            ->where('slug', $categorySlug)
+            ->first();
 
-        return view('pages.services', ['services' => $services]);
+        $categories = (new Category)->newQuery()
+            ->where('parent_id', $category->id)
+            ->where('published', 1)
+            ->get()
+            ->all();
+
+        return view('pages.categories', [
+            'categories' => $categories,
+            'headCategory' => $category
+        ]);
+    }
+
+    /**
+     * Список услуг выбранной категории
+     *
+     * @param $subCategory
+     * @return Application|Factory|View
+     */
+    public function actionGetServiceList($subCategory)
+    {
+        /**
+         * @var Category $category
+         */
+        $category = (new Category)->newQuery()
+            ->where('slug', $subCategory)
+            ->first();
+
+        $headCategory = (new Category)->newQuery()
+            ->where('id', $category->parent_id)
+            ->first();
+
+        $services = (new Service)->newQuery()
+            ->where('category_id', $category->id)
+            ->where('published', 1)
+            ->get()
+            ->all();
+
+        return view('pages.services', [
+            'services' => $services,
+            'num' => 1,
+            'category' => $category,
+            'headCategory' => $headCategory,
+        ]);
     }
 
     /**
      * Страница услуги
      *
+     * @param $subCategory
      * @param $serviceSlug
      * @return Application|Factory|View
      */
-    public function actionGetServiceItem($serviceSlug)
+    public function actionGetServiceItem($subCategory, $serviceSlug)
     {
         /**
-         * @var Service|null $service
+         * @var Category $category
+         */
+        $category = (new Category())->newQuery()
+            ->where('slug', $subCategory)
+            ->first();
+
+        $headCategory = (new Category)->newQuery()
+            ->where('id', $category->parent_id)
+            ->first();
+
+        /**
+         * @var Service $service
          */
         $service = (new Service)->newQuery()
             ->where('slug', $serviceSlug)
@@ -76,6 +137,8 @@ class MainController extends Controller
 
         return view('pages.service-single', [
             'service' => $service,
+            'category' => $category,
+            'headCategory' => $headCategory,
             'last_services' => Service::lastServices(4),
         ]);
     }

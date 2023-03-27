@@ -46,6 +46,7 @@
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
                         role="button" aria-expanded="false">Компания</a>
                         <ul class="dropdown-menu" role="menu">
+
                             <li><a style="color: #343a40;" class="nav-link" href="{{route('admin.category.index')}}">Категории</a></li>
                             <li><a style="color: #343a40;" class="nav-link" href="{{route('admin.project.index')}}">Проекты</a></li>
                             <li><a style="color: #343a40;" class="nav-link" href="{{route('admin.service.index')}}">Услуги</a></li>
