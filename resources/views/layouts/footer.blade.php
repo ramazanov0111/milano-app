@@ -3,47 +3,9 @@
         <div class="container">
             <div class="row footer_widgets_inner">
                 <div class="col-md-3 col-sm-6">
-                    <aside class="f_widget about_widget">
-                        <img src="img/footer-logo.png" alt="">
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan-tium doloremque
-                            laudantium. ed quia consequuntur magni dolores eos qui ratione.</p>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                    </aside>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <aside class="f_widget recent_widget">
-                        <div class="f_w_title">
-                            <h3>Recent Posts</h3>
-                        </div>
-                        <div class="recent_w_inner">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/blog/recent-post/recent-1.png" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><p>The road to success is always under con-struction</p></a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/blog/recent-post/recent-2.png" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><p>The road to success is always under con-struction</p></a>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-                <div class="col-md-3 col-sm-6">
                     <aside class="f_widget address_widget">
                         <div class="f_w_title">
-                            <h3>Office Address</h3>
+                            <h3>Наши контакты</h3>
                         </div>
                         <div class="address_w_inner">
                             <div class="media">
@@ -51,7 +13,7 @@
                                     <i class="fa fa-map-marker"></i>
                                 </div>
                                 <div class="media-body">
-                                    <p>1234 Cafficic, California, USA</p>
+                                    <p>Москва, Московская обл.</p>
                                 </div>
                             </div>
                             <div class="media">
@@ -59,8 +21,7 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="media-body">
-                                    <p>(012) 3456789 </p>
-                                    <p>(012) 3456789 </p>
+                                    <p>+7 (988) 446 77 70</p>
                                 </div>
                             </div>
                             <div class="media">
@@ -75,11 +36,15 @@
                     </aside>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <aside class="f_widget give_us_widget">
-                        <h5>Give Us A Call</h5>
-                        <h4>(012) 3456789</h4>
-                        <h5>or</h5>
-                        <a class="get_bg_btn" href="#">GET A QUOTE</a>
+                    <aside class="f_widget about_widget">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-telegram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                        <hr>
+                        <img src="img/footer-logo.png" alt="">
                     </aside>
                 </div>
             </div>

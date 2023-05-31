@@ -6,14 +6,14 @@
                    <h1 style="font-family: 'Kalam', cursive;">Milano</h1>
                 </a>
             </ul>
-            <ul class="navbar-nav ml-auto">
-                <div class="box">
-                    <div class="container-1">
-                        <span class="icon"><i class="fa fa-search"></i></span>
-                        <input type="search" id="search" placeholder="Search..." />
-                    </div>
-                </div>
-            </ul>
+{{--            <ul class="navbar-nav ml-auto">--}}
+{{--                <div class="box">--}}
+{{--                    <div class="container-1">--}}
+{{--                        <span class="icon"><i class="fa fa-search"></i></span>--}}
+{{--                        <input type="search" id="search" placeholder="Search..." />--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </ul>--}}
         </div>
     </div>
 </nav>

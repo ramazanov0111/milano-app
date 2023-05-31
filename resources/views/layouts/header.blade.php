@@ -51,9 +51,6 @@
 {{--                                @endforeach--}}
                             </ul>
                         </li>
-                        <li><a href="{{ url('/about') }}">О нас</a></li>
-                        <li><a href="{{ url('/blog') }}">Блог</a></li>
-                        <li><a href="{{ url('/contact') }}">Контакты</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav>

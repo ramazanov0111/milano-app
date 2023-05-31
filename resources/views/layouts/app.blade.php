@@ -26,6 +26,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -37,5 +39,8 @@
     </main>
 </div>
 
+<script type="text/javascript" src="{{ asset('assets/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/vendor/bootstrap/js/popper.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 </html>
