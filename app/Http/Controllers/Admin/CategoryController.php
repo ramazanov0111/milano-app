@@ -3,17 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Media;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Validation\ValidationException;
-use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class CategoryController extends Controller
 {
@@ -46,26 +44,25 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreCategoryRequest $request
+     * @param Request $request
      * @return RedirectResponse|JsonResponse
      */
-    public function store(StoreCategoryRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
-        try {
-            $this->validate($request, [
-                'title' => 'required|string',
-                'published' => 'required|integer',
-                'parent_id' => 'nullable|integer',
-            ], [
-                'title.required' => 'Введите название категории',
-            ]);
-        } catch (ValidationException $ex) {
-            return new JsonResponse([
-                'error' => $ex
-            ], ResponseAlias::HTTP_BAD_REQUEST);
-        }
+        $file = $request->file('preview');
+        $filename = $request->file('preview')->getClientOriginalName() ?? '';
+        $file->move(public_path() . '/img/categories', $filename);
+        $previewPath['filename'] = $filename;
 
-        Category::query()->create($request->all());
+        /**
+         * @var Media $preview
+         */
+        $preview = Media::query()->create($previewPath);
+
+        $params = $request->all();
+        $params['image'] = $preview->id;
+
+        Category::query()->create($params);
 
         return redirect()->route('admin.category.index');
     }
@@ -99,13 +96,29 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateCategoryRequest $request
+     * @param Request $request
      * @param Category $category
      * @return RedirectResponse
      */
-    public function update(UpdateCategoryRequest $request, Category $category): RedirectResponse
+    public function update(Request $request, Category $category): RedirectResponse
     {
+        $file = $request->file('preview');
+        $filename = $file ? $file->getClientOriginalName() : null;
+
+        if (($filename !== null) && ($filename !== '')) {
+            if (($category->preview && ($filename !== $category->preview->filename)) || ($category->preview === null)) {
+                $file->move(public_path() . '/img/categories', $filename);
+                $imagePath['filename'] = $filename;
+                /**
+                 * @var Media $image
+                 */
+                $image = Media::query()->create($imagePath);
+                $category->image = $image->id;
+            }
+        }
+
         $category->update($request->except('created_by'));
+
         return redirect()->route('admin.category.index');
     }
 

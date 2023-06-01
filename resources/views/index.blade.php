@@ -70,4 +70,10 @@
 
 <script src="{{ asset('js/theme.js') }}"></script>
 </body>
+<style>
+    .preview {
+        max-width: 90%;
+        width: auto;
+    }
+</style>
 </html>

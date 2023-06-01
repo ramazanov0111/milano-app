@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
@@ -14,10 +15,11 @@ use Illuminate\Support\Str;
  * @package App\Models
  *
  * @property int id
- * @property string title -
- * @property string slug -
- * @property int|null published -
+ * @property string title
+ * @property string slug
+ * @property int|null published
  * @property int parent_id -
+ * @property int|null image
  * @property Carbon|null created_by - Дата создания
  * @property Carbon|null modified_by - Дата обновления
  *
@@ -25,6 +27,7 @@ use Illuminate\Support\Str;
  * @property-read Service|null $services
  * @property-read Category|null $children
  * @property-read int $scopeLastCategories
+ * @property-read Media|null $preview
  *
  */
 class Category extends Model
@@ -38,6 +41,7 @@ class Category extends Model
         'title',
         'slug',
         'parent_id',
+        'image',
         'published',
         'created_by',
         'modified_by'
@@ -48,6 +52,7 @@ class Category extends Model
         'slug' => 'string',
         'published' => 'integer',
         'parent_id' => 'integer',
+        'image' => 'integer',
         'created_by' => 'datetime',
         'modified_by' => 'datetime',
     ];
@@ -78,6 +83,14 @@ class Category extends Model
     public function setSlugAttribute($value): void
     {
         $this->attributes['slug'] = Str::slug( mb_substr($this->title, 0, 40));
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function preview(): BelongsTo
+    {
+        return $this->belongsTo(Media::class, 'image', 'id');
     }
 
     /**

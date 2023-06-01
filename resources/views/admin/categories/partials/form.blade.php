@@ -17,6 +17,9 @@
 <input class="form-control" type="text" name="slug" placeholder="Автоматическая генерация"
        value="{{ $category->slug ?? ''}}" readonly="">
 
+<label class="btn btn-default btn-file">Изображение</label>
+<input type="file" class="form-control" id="preview" name="preview" value="{{$category->preview->filename ?? ''}}">
+
 <label for="">Родительская категория</label>
 <select class="form-control" name="parent_id">
     <option value="0">-- без родительской категории --</option>

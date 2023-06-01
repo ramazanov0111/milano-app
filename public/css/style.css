@@ -1671,6 +1671,10 @@ iframe {
 }
 
 .service2_inner .service2_item .service2_item_inner {
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    height: auto;
     text-align: center;
     background: #fff;
     padding: 45px 20px 16px 20px;
@@ -1746,6 +1750,10 @@ iframe {
 .service2_inner .service2_item:hover .service2_item_inner .service2_item_inner_content .view_btn {
     visibility: visible;
     opacity: 1;
+}
+
+.service2_inner .service2_item:hover .service2_item_inner .service2_item_inner_content .service_icon {
+    display: none;
 }
 
 /* End Our Service2 area css

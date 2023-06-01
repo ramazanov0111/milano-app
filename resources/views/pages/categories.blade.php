@@ -37,10 +37,10 @@
                             <div class="service2_item_inner">
                                 <div class="service2_item_inner_content">
                                     <div class="service_icon">
-                                        <img width="80px" height="80px"
-                                             src="{{ $category->image ? asset("img/services/".$category->image->filename) : ''}}" alt="">
-                                        <img width="80px" height="80px"
-                                             src="{{ $category->image ? asset("img/projects/".$category->image->filename) : '' }}" alt="">
+                                        <img class="preview"
+                                             src="{{ $category->image ? asset("img/categories/".$category->preview->filename) : ''}}" alt="">
+                                        <img class="preview"
+                                             src="{{ $category->image ? asset("img/categories/".$category->preview->filename) : '' }}" alt="">
                                     </div>
                                     <h4>{{ $category->title }}</h4>
                                     <a class="view_btn" href="{{ url("/services/" . $category->slug) }}">Посмотреть услуги</a>
