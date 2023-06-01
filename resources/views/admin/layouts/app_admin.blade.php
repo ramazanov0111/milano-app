@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Milano') }}</title>
+    <title>{{ config('app.name', 'ART-SAM') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-2.2.4.js') }}"></script>
@@ -24,13 +24,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <h1 style="font-family: 'Kalam', cursive;" >Milano</h1>
+            <a class="navbar-brand" href="{{ url('/') }}" style="padding: 0 3px;">
+                <h1 style="font-family: 'Kalam', cursive; " >ART-SAM</h1>
             </a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -96,9 +98,10 @@
         @yield('content')
     </main>
 </div>
-{{--<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>--}}
-{{--<script src="{{ asset('js/app.js') }}"></script>--}}
-{{--<script src="{{ asset('../resources/js/app.js') }}"></script>--}}
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{{ asset('js/jquery-2.2.4.js') }}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

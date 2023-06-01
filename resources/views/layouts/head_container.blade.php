@@ -3,7 +3,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   <h1 style="font-family: 'Kalam', cursive;">Milano</h1>
+                   <h1 style="font-family: 'Kalam', cursive;">ART-SAM</h1>
                 </a>
             </ul>
 {{--            <ul class="navbar-nav ml-auto">--}}

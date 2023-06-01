@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-    <title>{{ config('app.name', 'Milano') }}</title>
+    <title>{{ config('app.name', 'ART-SAM') }}</title>
     <meta name="keywords" content="@yield('meta_keyword')">
     <meta name="description" content="@yield('meta_description')">
 

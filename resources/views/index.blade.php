@@ -6,7 +6,7 @@
 
     <link rel="icon" href="{{ asset('img/fav-icon.png') }}" type="image/x-icon"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Milano</title>
+    <title>ART-SAM</title>
 
     <!-- Icon css link -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">

@@ -35,6 +35,7 @@
                         </p>
                     </a>
                 @endforeach
+                <a href="{{route('admin.category.index')}}" class="badge-dark btn btn-block btn-default">Все категории</a>
             </div>
             <div class="col-sm-4">
                 <a href="{{route('admin.project.create')}}" class="badge-dark btn btn-block btn-default">Добавить проект</a>
@@ -46,6 +47,7 @@
                         </p>
                     </a>
                 @endforeach
+                <a href="{{route('admin.project.index')}}" class="badge-dark btn btn-block btn-default">Все проекты</a>
             </div>
             <div class="col-sm-4">
                 <a href="{{route('admin.service.create')}}" class="badge-dark btn btn-block btn-default">Добавить услугу</a>
@@ -57,6 +59,7 @@
                         </p>
                     </a>
                 @endforeach
+                <a href="{{route('admin.service.index')}}" class="badge-dark btn btn-block btn-default">Все услуги</a>
             </div>
         </div>
     </div>
